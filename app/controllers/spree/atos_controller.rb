@@ -15,6 +15,7 @@ module Spree
           order_completed!
           session[:order_id] = nil
           flash[:notice] = I18n.t(:order_processed_successfully).html_safe
+          flash[:commerce_tracking] = 'nothing special'
           redirect_to spree.order_path(@order)
         else
           flash[:error] = I18n.t(:amounts_do_not_match,
