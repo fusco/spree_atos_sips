@@ -47,7 +47,7 @@ module Spree
     private
   
       def load_response_data
-        @payment_method = Spree::PaymentMethod.where(:type => "Spree::BillingIntegration::Atos::Sips", :active => 1).first
+        @payment_method = Spree::PaymentMethod.where(:type => "Spree::BillingIntegration::Atos::Sips", :active => true).first
         @banque = if banque = Spree::Preference.where(:key => "spree/billing_integration/atos/sips/banque/#{@payment_method.id}").first
           banque.value
         else

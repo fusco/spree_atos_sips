@@ -7,7 +7,7 @@ module Spree
     private
 
       def atos_request
-        gateway = PaymentMethod.where(:type => "Spree::BillingIntegration::Atos::Sips", :active => 1).first
+        gateway = Spree::PaymentMethod.where(:type => "Spree::BillingIntegration::Atos::Sips", :active => true).first
         # facebook_app_url = Preference.where(:key => "spree/billing_integration/atos/sips/facebook_application_url/#{gateway.id}").first.value
         base_url = "http://#{Config.site_url}"
         @atos_request = AtosPayment.new(
@@ -16,7 +16,7 @@ module Spree
         .request(
           :merchant_id            => gateway.preferred_merchant_id,
           :amount                 => (@order.total.to_f*100).to_i,
-          :customer_id            => (current_user ? current_user.id : 0),
+          :customer_id            => (spree_current_user ? spree_current_user.id : 0),
           :order_id               => @order.id,
           :automatic_response_url => "#{base_url}/atos/atos_auto_response",
           :normal_return_url      => "#{base_url}/atos/atos_confirm",
