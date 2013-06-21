@@ -8,10 +8,10 @@ La gem spree_atos_sips permet d'intégrer simplement la méthode de paiement de 
 
 ### Installation
 
-1. Pour l'installer, il suffit d'ajouter la ligne suivante à votre Gemfile.
-
+1. Pour l'installer, il suffit d'ajouter la ligne suivante à votre Gemfile suivnat votre version de Spree
 <pre>
-    gem 'spree_atos_sips', :git => 'https://github.com/Johann-dotgee/spree_atos_sips.git'
+    gem 'spree_atos_sips', :git => 'https://github.com/fusco/spree_atos_sips.git'
+    gem 'spree_atos_sips', :git => 'https://github.com/fusco/spree_atos_sips.git', :branch => '2-0-stable'
 </pre>
 
 2. Effectuez ensuite un bundle install
@@ -34,30 +34,19 @@ La gem spree_atos_sips permet d'intégrer simplement la méthode de paiement de 
 
 6. Placez ensuite les fichiers (binaires, certificats, etc) selon l'architecture suivante dans votre projet rails:
 
+7. Changer les chemins des fichiers pathfile et parmcom.xxxxxxxxxxxxxxx
 
-* mon_commerce
-
-* * lib
-
-* * * atos
- 
-* * * * bin
-
-* * * * * request
-
-* * * * * response
-
-* * * * banque
-
-* * * * * certif.fr.identifiant
-
-* * * * * params.xml
-
-* * * * * parmcom.identifiant
-
-* * * * * parmcom.banque
-
-* * * * * pathfile
+| mon_commerce
+|----lib (d)
+|-------L atos (d)
+|-------------L bin (d)
+|------------------L request (f)
+|------------------L response (f)
+|-------------L nom_du_systeme_bancaire (d) (mercanet, sogenactif, webaffaires....)
+|----------------------L certif.fr.identifiant  (f)
+|----------------------L parmcom.identifiant (f)
+|----------------------L parmcom.banque  (f)
+|----------------------L pathfile (f)
 
 
 
@@ -72,7 +61,8 @@ The spree_atos_sips gem allows you to put easily the payment method from Atos Wo
 1. To install the gem, just put the following in your Gemfile.
 
 <pre>
-    gem 'spree_atos_sips', :git => 'https://github.com/Johann-dotgee/spree_atos_sips.git'
+    gem 'spree_atos_sips', :git => 'https://github.com/fusco/spree_atos_sips.git'
+    gem 'spree_atos_sips', :git => 'https://github.com/fusco/spree_atos_sips.git', :branch => '2-0-stable'
 </pre>
 
 2. Then, bundle install
@@ -93,33 +83,20 @@ The spree_atos_sips gem allows you to put easily the payment method from Atos Wo
 
 5. Some new fields appeared (merchant id, banque), fill them.
 
-6. Finally, put the files the bank gave you (binaries, certificates, etc) on the right place, according to the following architecture:
+6. put the files the bank gave you (binaries, certificates, etc) on the right place, according to the following architecture:
 
+7. Change path in files pathfile and parmcom.xxxxxxxxxxxxxxxx
 
-* mon_commerce
-
-* * lib
-
-* * * atos
- 
-* * * * bin
-
-* * * * * request
-
-* * * * * response
-
-* * * * banque
-
-* * * * * certif.fr.identifiant
-
-* * * * * params.xml
-
-* * * * * parmcom.identifiant
-
-* * * * * parmcom.banque
-
-* * * * * pathfile
-
-
+| mon_commerce
+|----lib (d)
+|-------L atos (d)
+|-------------L bin (d)
+|------------------L request (f)
+|------------------L response (f)
+|-------------L bank_system_name (d) (mercanet, sogenactif, webaffaires....)
+|----------------------L certif.fr.identifiant  (f)
+|----------------------L parmcom.identifiant (f)
+|----------------------L parmcom.banque  (f)
+|----------------------L pathfile (f)
 
 Copyright (c) 2011 [name of extension creator], released under the New BSD License
