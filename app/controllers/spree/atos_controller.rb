@@ -62,15 +62,17 @@ module Spree
       end
   
       def create_payment
-        @atos_account = Spree::AtosSipsAccount.find_or_create_by_customer_id_and_payment_means_and_card_number(
-          @response_array[:customer_id],@response_array[:payment_means],@response_array[:card_number])
+        @atos_account = Spree::AtosSipsAccount.find_or_create_by_customer_id_and_payment_means_and_card_number_and_response_code_and_avs_response_and_transaction_id_and_authorisation_id(
+          @response_array[:customer_id],@response_array[:payment_means],@response_array[:card_number],@response_array[:response_code], @response_array[:error],@response_array[:transaction_id], @response_array[:authorisation_id])
         @payment = @order.payments.create(
           :amount => (@response_array[:amount].to_f/100.0),
-          :source => @atos_account,
-          :source_type => 'Spree::AtosSipsAccount',
-          :payment_method_id => @payment_method.id,
-          :response_code => @response_array[:response_code],
-          :avs_response => @response_array[:error])
+          #:source => @atos_account,
+          #:source_type => 'Spree::AtosSipsAccount',
+          :payment_method_id => @payment_method.id
+        #,
+        #  :response_code => @response_array[:response_code],
+        #  :avs_response => @response_array[:error]
+         )
         @payment.started_processing!
       end
   

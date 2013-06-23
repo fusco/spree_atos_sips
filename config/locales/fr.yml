@@ -4,15 +4,17 @@ fr:
   complete_atos_checkout: Please complete Atos checkout before continuing
   order_processed_successfully: La commande a été effectuée avec succès
   amounts_do_not_match: "Le prix de vos achats (%{total_order}) et le montant que vous avez payé (%{total_paid}) diffèrent"
-  atos: PAIEMENT ATOS SIPS
-  atos_transaction: Transaction bancaire
-  atos_payment_type: Mode de paiement
-  atos_transaction_id: Numéro de transaction
-  atos_payment_ip: Adresse Ip du Client
-  atos_payment_state: État du paiement
-  atos_payment_currency: Devise du paiement
-
-
+  spree:
+      payment_state: ÉTAT PAIEMENT
+      atos_payment_state: État du paiement
+      atos_store_transaction: Store transaction id
+      atos_payment_type: Carte de paiement
+      atos_payment_currency: Devise
+      atos_transaction_information: Information sur la transaction Atos
+      atos_transaction_date: Date de la Transaction
+      atos_transaction_id: transaction ID
+      atos_authorisation_id: Authorisation ID
+      atos_custumer_ip: Adresse IP du client
 
 
 
